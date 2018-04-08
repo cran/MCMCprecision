@@ -1,36 +1,46 @@
 #' Summary for Posterior Model Probabilities
 #'
-#' Summary for a sample of posterior model probabilities (\code{\link{stationary}}). Also provides the estimated effective sample size and summaries for all pairwise Bayes factors.
+#' Summary for a sample of posterior model probabilities (\code{\link{stationary}}).
+#' Also provides the estimated effective sample size and summaries for all pairwise Bayes factors.
 #'
-#' @param object posterior samples of the stationary distribution (rows = samples; columns = models)
-#' @param BF whether to compute summaries for all pairwise Bayes factors
-#' @param logBF whether to summarize log Bayes factors instead of Bayes factors
-#' @param ... passed to \code{\link{dirichlet.mle}} to estimate effective sample size (e.g., \code{maxit} and \code{abstol})
+#' @param object posterior samples of the stationary distribution (rows = samples; columns = models).
+#' @param BF whether to compute summaries for all pairwise Bayes factors.
+#' @param logBF whether to summarize log Bayes factors instead of Bayes factors.
+#' @param ... passed to \code{\link{fit_dirichlet}} to estimate effective sample size
+#'     (e.g., \code{maxit} and \code{abstol}).
 #'
-#' @details Effective sample is estimated by fitting a Dirichlet model to the posterior model probabilities (thereby assuming that samples were drawn from an equivalent multinomial distribution based on independent sampling). More precisely, sample size is estimated by the sum of the Dirichlet parameters \eqn{\sum\alpha[i]} minus the prior sample size \eqn{\epsilon*M^2}  (where \eqn{M} is the number of sampled models and \eqn{\epsilon} the prior parameter for each transition frequency).
+#' @details
+#' Effective sample is estimated by fitting a Dirichlet model to the
+#' posterior model probabilities (thereby assuming that samples were drawn from
+#' an equivalent multinomial distribution based on independent sampling).
+#' More precisely, sample size is estimated by the sum of the Dirichlet parameters
+#' \eqn{\sum\alpha[i]} minus the prior sample size \eqn{\epsilon*M^2}
+#' (where \eqn{M} is the number of sampled models and \eqn{\epsilon} the
+#' prior parameter for each transition frequency).
 #'
 #' @examples
 #' P <- matrix(c(.1,.5,.4,
 #'               0, .5,.5,
 #'               .9,.1,0), ncol = 3, byrow=TRUE)
-#' z <- sim.mc(1000, P)
+#' z <- rmarkov(1000, P)
 #' samples <- stationary(z, summary = FALSE)
 #' summary(samples)
 #'
-#' @return a list with estimates for \code{"pp"} = posterior model probabilities, \code{"n.eff"} = effective sample size, and \code{"bf"} = pairwise Bayes factors (optional)
-#' @seealso \code{\link{stationary}}, \code{\link{dirichlet.mle}}
-#' @method summary stationary
-summary.stationary <- function(object,
-                               BF = FALSE,
-                               logBF = FALSE,
-                               ...){
+#' @return a list with estimates for
+#'     \code{"pp"} = posterior model probabilities,
+#'     \code{"n.eff"} = effective sample size, and
+#'     \code{"bf"} = pairwise Bayes factors (optional)
+#'
+#' @seealso \code{\link{stationary}}, \code{\link{fit_dirichlet}}
+#' @export
+summary.stationary <- function(object, BF = FALSE, logBF = FALSE, ...){
   samples <- object
   pp <- t(apply(samples, 2, summ.samples))
 
   n.eff <- NA
   if (attr(samples, "method") != "iid"){
     try ({
-      est <- dirichlet.mle(na.omit(samples), ...)$sum
+      est <- fit_dirichlet(na.omit(samples), ...)$sum
       n.eff <-  floor(est - attr(object, "epsilon")*ncol(samples)^2)
     })
   }
@@ -66,7 +76,8 @@ summary.stationary <- function(object,
   return (res)
 }
 
-summ.samples <- function(x)
+summ.samples <- function(x, probs = c(.05,.5,.95)){
   c(Mean=mean(x, na.rm = TRUE),
     SD=sd(x, na.rm = TRUE),
-    quantile(x, probs=c(.05,.5,.95), na.rm = TRUE))
+    quantile(x, probs = probs, na.rm = TRUE))
+}

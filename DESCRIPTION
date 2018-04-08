@@ -1,8 +1,8 @@
 Package: MCMCprecision
 Type: Package
 Title: Precision of Discrete Parameters in Transdimensional MCMC
-Version: 0.3.7
-Date: 2017-08-04
+Version: 0.3.8
+Date: 2018-04-08
 Authors@R: c(person("Daniel W.","Heck", email="heck@uni-mannheim.de",role=c("aut","cre")))
 Author: Daniel W. Heck [aut, cre]
 Maintainer: Daniel W. Heck <heck@uni-mannheim.de>
@@ -22,10 +22,11 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.0.0)
 Imports: Rcpp, parallel, utils, stats, Matrix, combinat
+Suggests: testthat
 LinkingTo: Rcpp, RcppArmadillo, RcppProgress, RcppEigen
 RoxygenNote: 6.0.1
 URL: https://github.com/danheck/MCMCprecision
 NeedsCompilation: yes
-Packaged: 2017-08-04 12:28:03 UTC; Daniel
+Packaged: 2018-04-08 12:01:30 UTC; Daniel
 Repository: CRAN
-Date/Publication: 2017-08-04 13:48:34 UTC
+Date/Publication: 2018-04-08 17:11:40 UTC
