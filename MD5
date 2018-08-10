@@ -1,7 +1,7 @@
-585b46521b79803c8118623bcc808c5c *DESCRIPTION
+5a705c6dc9791d29ebd52221d5f39054 *DESCRIPTION
 19e820cf1a69854ccd2bd8580a05d121 *NAMESPACE
-5c6cd16120a0978fe7c5ee5aaa0be2fb *NEWS
-62ec82b7d12e1e97f1fd0cf40da665b8 *R/MCMCprecision.R
+056bc0c8b3004be9223a5745ecceb4af *NEWS
+713240e154321b1e21de6f78ba0c797e *R/MCMCprecision.R
 b6fb185ab70ac197245a5ca0a26ac092 *R/RcppExports.R
 f0939395e5e0767119f0614488910592 *R/best_k.R
 1d094ba2e6aa37dcf62364824bad6041 *R/dirichlet_mle.R
@@ -12,8 +12,12 @@ d9406e8d1bb898b2047a3981537de71b *R/stationary.R
 b14c0c9cd35dc5e2858233671b3bd3a1 *R/stationary_mle.R
 ffb3233d1d6c8a8e13ecd0b9e8fba7aa *R/summary.R
 4c3d2ab585eef14f44c1261c4964d62c *R/transitions.R
+6aa08fa31c1b26e7d7a54214610a7e93 *build/vignette.rds
+677d2aa4b7378ab44c5a641d90d6af37 *inst/CITATION
+90ff5a1fb7bdcb33832e677c5489efdf *inst/doc/Heck_2018_Statistics_and_Computing.pdf
+73849b9a7cdf3470996f88c1fb4f659f *inst/doc/Heck_2018_Statistics_and_Computing.pdf.asis
 32af18176fdfdc0ce6b29f4190dff5cd *inst/include/MCMCprecision.h
-758f5e4a5ddb401f1643cf1287a963ca *man/MCMCprecision-package.Rd
+2cb7d742e3d8136b66fe30fb4d2ffc46 *man/MCMCprecision-package.Rd
 27d4cae8dc2365cf1903f47d0ba3cedc *man/best_models.Rd
 05879fa59227af3aacba9c0bfaa76780 *man/fit_dirichlet.Rd
 cfc43c1da46f578820be43e849564468 *man/rdirichlet.Rd
@@ -22,11 +26,11 @@ f97f7b69e5bf034907a50aae37460a8e *man/stationary.Rd
 68fbd9f82c5c45b4e1d40b4d6d3067a2 *man/stationary_mle.Rd
 416e990630cb92265e6af7d662f541be *man/summary.stationary.Rd
 998e7394dbd2634dc401b72e61a6aa7a *man/transitions.Rd
-279494fda6ae075a80fe1f4564990e87 *src/Makevars
+6e7dc3d6574584c032f6874dadf726bd *src/Makevars
 6b5ba409312a9ef423f6fb51c540b4c6 *src/RcppExports.cpp
-bad79d94a4df056a05fdb11d83d74af4 *src/dirichlet_minka.cpp
+f342f499a570dd2c108e46f59db68986 *src/dirichlet_minka.cpp
 8d9ad01e4fe5b937322d0b9e92e15a96 *src/init.c
-bbea579a3787ef89de233b23824bc545 *src/stationary.cpp
+f34672c88c469e55d53a3be7ba80c51a *src/stationary.cpp
 3195eaf6a5948d45bc9a8b6c289f7b3f *src/stationary_Eigen.cpp
 7f7b62b586d0b4e6b2958aa46d6afeb5 *src/stationary_mle.cpp
 5490238ed7de084e8990ec82f6a826d1 *tests/testthat.R
@@ -34,3 +38,4 @@ bbea579a3787ef89de233b23824bc545 *src/stationary.cpp
 175f293b91c88a25c80c994e764dff5e *tests/testthat/test_rmarkov.R
 ce75d9e2cc48c1312633bd6346f05a64 *tests/testthat/test_stationary.R
 c1b6b509ec14bb24919af995e646a927 *tests/testthat/test_transitions.R
+73849b9a7cdf3470996f88c1fb4f659f *vignettes/Heck_2018_Statistics_and_Computing.pdf.asis
